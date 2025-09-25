@@ -1,9 +1,20 @@
+import streamlit as st
 import praw
 from prawcore.exceptions import Redirect, NotFound, OAuthException
-from config import CLIENT_ID, CLIENT_SECRET, USER_AGENT
+from config import REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, REDDIT_USER_AGENT
 
 VALID_SORTS = ['hot', 'new', 'top']
 VALID_TIME_FILTERS = ['all', 'day', 'hour', 'month', 'week', 'year']
+
+try:
+    CLIENT_ID = st.secrets["reddit"]["client_id"]
+    CLIENT_SECRET = st.secrets["reddit"]["client_secret"]
+    USER_AGENT = st.secrets["reddit"]["user_agent"]
+except (KeyError, FileNotFoundError):
+    # Handle case where secrets are not set, especially for initial local run
+    CLIENT_ID = REDDIT_CLIENT_ID
+    CLIENT_SECRET = REDDIT_CLIENT_SECRET
+    USER_AGENT = REDDIT_USER_AGENT
 
 def scrape_subreddit(subreddit_name, post_limit, sort_by = 'hot', time_filter = 'all'):
     if not CLIENT_ID or not CLIENT_SECRET:
