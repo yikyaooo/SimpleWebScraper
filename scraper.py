@@ -1,10 +1,8 @@
 import praw
 import json
-import os
+from config import CLIENT_ID, CLIENT_SECRET, USER_AGENT
 
-CLIENT_ID = os.getenv("REDDIT_CLIENT_ID", "SZa-Mt-8JLPXesFcBSOefg")
-CLIENT_SECRET = os.getenv("REDDIT_CLIENT_SECRET", "8SVXsJPSrDVPZHQYkVLzUTPGAKBLjg")
-USER_AGENT = "MySimpleScraper/0.1 by u/Lazy-Share-4347"
+
 
 SUBREDDIT_NAME = "malaysia"
 POST_LIMIT = 250
@@ -27,7 +25,17 @@ def main():
     print(f"Connecting to Reddit and scraping /r/{SUBREDDIT_NAME}...")
     subreddit = reddit.subreddit(SUBREDDIT_NAME)
 
-    print("Connection successful.")
+    image_posts = []
+    for submission in subreddit.hot(limit=POST_LIMIT):
+
+        if not submission.stickied and submission.url.endswith(('jpg', 'jpeg', 'png', 'gif')):
+            image_posts.append({
+                "post_title": submission.title,
+                "image_url": submission.url
+            })
+            print(f"Found image post: {submission.title[:50]}...")
+
+    print(f"\nScraping complete. Found {len(image_posts)} image posts.")
 
 if __name__ == "__main__":
     main()
