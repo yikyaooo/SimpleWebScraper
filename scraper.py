@@ -27,7 +27,6 @@ def main():
 
     image_posts = []
     for submission in subreddit.hot(limit=POST_LIMIT):
-
         if not submission.stickied and submission.url.endswith(('jpg', 'jpeg', 'png', 'gif')):
             image_posts.append({
                 "post_title": submission.title,
@@ -35,7 +34,13 @@ def main():
             })
             print(f"Found image post: {submission.title[:50]}...")
 
-    print(f"\nScraping complete. Found {len(image_posts)} image posts.")
+    # Save the data to a JSON file
+    try:
+        with open(OUTPUT_FILENAME, 'w', encoding='utf-8') as f:
+            json.dump(image_posts, f, indent=4, ensure_ascii=False)
+        print(f"\nSuccessfully saved {len(image_posts)} image posts to {OUTPUT_FILENAME}.")
+    except Exception as e:
+        print(f"Error saving file: {e}")
 
 if __name__ == "__main__":
     main()
