@@ -82,7 +82,7 @@ if 'posts' in st.session_state:
         # Display each post
         for post in posts:
             st.subheader(post['post_title'])
-            st.image(post['image_url'],  width=True)
+            st.image(post['image_url'], width='stretch')
             st.divider()
     else:
         # Handle the case where scraping was successful but found 0 images
