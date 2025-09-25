@@ -23,7 +23,7 @@ if sort_by_input == 'Top':
         index=0
     )
 
-limit_input = st.number_input("Post Limit", min_value=10, max_value=1000, value=100, step=10,
+limit_input = st.number_input("Post Limit (1 page worth of posts is around 25)", min_value=10, max_value=1000, value=100, step=10,
                                 help="The number of posts to search through.")
 
 
