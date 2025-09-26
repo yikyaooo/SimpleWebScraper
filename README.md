@@ -20,13 +20,13 @@ An interactive web application built with Python and Streamlit to scrape image p
 The project is structured to separate the data scraping logic from the web interface.
 
 .
-├── .streamlit/
-│ └── secrets.toml # Local API credentials (git-ignored)
-├── .gitignore # Files to be ignored by Git
-├── README.md # This file
-├── app.py # The Streamlit web app (UI)
-├── scraper.py # The module with the scraping logic
-└── requirements.txt # Python dependencies
+- ├── .streamlit/
+- │ └── secrets.toml # Local API credentials (git-ignored)
+- ├── .gitignore # Files to be ignored by Git
+- ├── README.md # This file
+- ├── app.py # The Streamlit web app (UI)
+- ├── scraper.py # The module with the scraping logic
+- └── requirements.txt # Python dependencies
 
 
 ## Technology Stack
@@ -60,33 +60,33 @@ You need Reddit API credentials to use this scraper.
 ### 3. Clone and Set Up the Project
 
 #### Clone the repository
-git clone https://github.com/yikyaooo/SimpleWebScraper.git
-cd SimpleWebScraper
+1. git clone https://github.com/yikyaooo/SimpleWebScraper.git
+2. cd SimpleWebScraper
 
 #### Create and activate a virtual environment (recommended)
 #### Windows
-python -m venv venv
-venv\Scripts\activate
+1. python -m venv venv
+2. venv\Scripts\activate
 
 #### macOS / Linux
-python3 -m venv venv
-source venv/bin/activate
+1. python3 -m venv venv
+2. source venv/bin/activate
 
 #### Install the required dependencies
 pip install -r requirements.txt
 
 ### 4. Configure Local Secrets
 To run the app locally, you need to provide your API credentials in a local secrets file. This file is intentionally ignored by Git to keep your keys safe.
-Create a new folder named .streamlit in the project's root directory.
-Inside the .streamlit folder, create a new file named secrets.toml.
-Open secrets.toml and add your credentials in the following format:
+1. Create a new folder named .streamlit in the project's root directory.
+2. Inside the .streamlit folder, create a new file named secrets.toml.
+3. Open secrets.toml and add your credentials in the following format:
 
 #### .streamlit/secrets.toml
 
-[reddit]
-client_id = "YOUR_CLIENT_ID_HERE"
-client_secret = "YOUR_CLIENT_SECRET_HERE"
-user_agent = "MyStreamlitScraper/1.0 by YourUsername"
+- [reddit]
+- client_id = "YOUR_CLIENT_ID_HERE"
+- client_secret = "YOUR_CLIENT_SECRET_HERE"
+- user_agent = "MyStreamlitScraper/1.0 by YourUsername"
 
 To run the website type this on the terminal
-streamlit run app.py
+- streamlit run app.py
