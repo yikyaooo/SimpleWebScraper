@@ -59,20 +59,20 @@ You need Reddit API credentials to use this scraper.
 
 ### 3. Clone and Set Up the Project
 
-# Clone the repository
+#### Clone the repository
 git clone https://github.com/yikyaooo/SimpleWebScraper.git
 cd SimpleWebScraper
 
-# Create and activate a virtual environment (recommended)
-# Windows
+#### Create and activate a virtual environment (recommended)
+#### Windows
 python -m venv venv
 venv\Scripts\activate
 
-# macOS / Linux
+#### macOS / Linux
 python3 -m venv venv
 source venv/bin/activate
 
-# Install the required dependencies
+#### Install the required dependencies
 pip install -r requirements.txt
 
 ### 4. Configure Local Secrets
@@ -81,7 +81,7 @@ Create a new folder named .streamlit in the project's root directory.
 Inside the .streamlit folder, create a new file named secrets.toml.
 Open secrets.toml and add your credentials in the following format:
 
-# .streamlit/secrets.toml
+#### .streamlit/secrets.toml
 
 [reddit]
 client_id = "YOUR_CLIENT_ID_HERE"
