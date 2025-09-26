@@ -17,7 +17,7 @@ except (KeyError, FileNotFoundError):
 
 def scrape_subreddit(subreddit_name, post_limit, sort_by = 'hot', time_filter = 'all'):
     if not CLIENT_ID or not CLIENT_SECRET:
-        raise ValueError("Reddit API credentials not found in config.py.")
+        raise ValueError("Reddit API credentials not found.")
     
     sort_by = sort_by.lower()
     if sort_by not in VALID_SORTS:
